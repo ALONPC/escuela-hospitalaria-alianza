@@ -1,16 +1,61 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+import { Button } from "../Atoms/Button";
+import { makeStyles } from "@material-ui/styles";
+import { Grid } from "@material-ui/core";
+import { Logo } from "../Atoms/Logo";
+
+const useStyles = makeStyles({
+  header: {
+    padding: 16,
+  },
+  nav: {
+    display: "flex",
+    justifyContent: "space-evenly",
+  },
+});
+
+const HeaderGridItem = ({ children }) => (
+  <Grid container item xs={4} justifyContent="center">
+    {children}
+  </Grid>
+);
 
 export const Header = () => {
+  const classes = useStyles();
   return (
-    <div>
-      <a>Inicio</a>
-      <a>Escuela</a>
-      <a>Documentos</a>
+    <Grid
+      container
+      spacing={1}
+      justifyContent="space-evenly"
+      alignItems="center"
+      className={classes.header}
+    >
+      <HeaderGridItem>
+        <Button type="link" to="/">
+          Inicio
+        </Button>
+        <Button type="link" to="/about">
+          Escuela
+        </Button>
+        <Button type="link" to="/documents">
+          Documentos
+        </Button>
+      </HeaderGridItem>
+      <HeaderGridItem>
+        <Logo></Logo>
+      </HeaderGridItem>
+      <HeaderGridItem>
+        <Button size="large">Ingresar</Button>
+      </HeaderGridItem>
+    </Grid>
+    // <div className={classes.header}>
+    //   <div className={classes.nav}>
+    //     <a>Inicio</a>
+    //     <a>Escuela</a>
+    //     <a>Documentos</a>
+    //   </div>
 
-      <Button variant="contained" color="primary">
-        Ingresar
-      </Button>
-    </div>
+    //   <Button size="large">Ingresar</Button>
+    // </div>
   );
 };
