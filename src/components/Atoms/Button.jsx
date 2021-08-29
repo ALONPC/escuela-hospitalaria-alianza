@@ -12,7 +12,6 @@ const useStyles = makeStyles({
   link: {
     border: "none",
     "&:hover": {
-      backgroundColor: "none",
       border: "none",
       textDecoration: "underline hsla(19, 82%, 63%, 1)",
     },
@@ -35,6 +34,7 @@ export const Button = ({ children, type, ...restOfProps }) => {
         : {
             className: classes.button,
           })}
+      // className={restOfProps.size === "large" && classes.large}
     >
       {children}
     </MuiButton>

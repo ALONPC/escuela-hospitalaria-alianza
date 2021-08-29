@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 });
 
 const HeaderGridItem = ({ children }) => (
-  <Grid container item xs={4} justifyContent="center">
+  <Grid container item xs={4} justifyContent="space-evenly">
     {children}
   </Grid>
 );
@@ -48,14 +48,5 @@ export const Header = () => {
         <Button size="large">Ingresar</Button>
       </HeaderGridItem>
     </Grid>
-    // <div className={classes.header}>
-    //   <div className={classes.nav}>
-    //     <a>Inicio</a>
-    //     <a>Escuela</a>
-    //     <a>Documentos</a>
-    //   </div>
-
-    //   <Button size="large">Ingresar</Button>
-    // </div>
   );
 };
