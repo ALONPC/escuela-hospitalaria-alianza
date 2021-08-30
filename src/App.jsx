@@ -14,6 +14,7 @@ const theme = createTheme({
   root: {
     maxWidth: 1920,
     overflowX: "hidden",
+    minHeight: "100%",
   },
   typography: {
     fontFamily: "Cabin, sans-serif",

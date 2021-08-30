@@ -4,15 +4,15 @@ import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import MinistriesLogo from "../../assets/logo/logoMinisteriosChile.png";
 import HospitalLogo from "../../assets/logo/logoHospitalSanJose.png";
-
-import Logo from "../../assets/logo/logo.png";
+import { Logo } from "../Atoms/Logo";
 
 const useStyles = makeStyles((theme) => ({
-  wrapper: {},
-
   container: {
-    backgroundColor: theme.palette.primary.light,
+    flexGrow: 1,
     height: 182,
+    top: "100vh",
+    backgroundColor: theme.palette.primary.light,
+    border: "1px solid red",
   },
   // circle: {
   //   backgroundColor: "#CDEFFD",
@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
   //   height: 250,
   //   border: "1px solid red",
   //   position: "absolute",
-  //   top: "100vh",
   //   left: "50%",
   //   transform: "translate(-50%, 0%)",
   // },
@@ -53,67 +52,67 @@ const socialMedia = [
 export const Footer = () => {
   const classes = useStyles();
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.circle}></div>
-      <div style={{ flexGrow: 1 }}>
-        <Grid
-          container
-          className={classes.container}
-          justifyContent="space-center"
-          alignItems="center"
-          alignContent="center"
-        >
-          <Grid item xs={4}>
-            <Grid container justifyContent="center">
-              {socialMedia.map((media) => {
-                return <Grid item>{media.icon}</Grid>;
-              })}
-            </Grid>
+    <div className={classes.container}>
+      <Grid
+        container
+        justifyContent="space-center"
+        alignItems="center"
+        alignContent="center"
+      >
+        <Grid item xs={4}>
+          <Grid container justifyContent="center">
+            {socialMedia.map((media) => {
+              return <Grid item>{media.icon}</Grid>;
+            })}
           </Grid>
-          <Grid item xs={3}>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              alignContent="center"
-              spacing={3}
-            >
-              <Grid item>
-                <img src={Logo} alt="logo"></img>
-              </Grid>
-              <Grid item>
-                <Typography variant="body1" component="p">
-                  © Todos los derechos reservados 2021
-                </Typography>
-              </Grid>
+        </Grid>
+        <Grid item xs={4}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            alignContent="center"
+            spacing={4}
+          >
+            <Grid item>
+              <Logo></Logo>
             </Grid>
-          </Grid>
-          <Grid item xs={4}>
-            <Grid
-              container
-              alignItems="center"
-              // spacing={2}
-              //  justifyContent="flex-end"
-            >
-              <Grid item xs={2}>
-                <img
-                  style={{ width: 100, height: "auto" }}
-                  src={HospitalLogo}
-                  alt="hospitalLogo"
-                ></img>
-              </Grid>
-              <Grid item xs={2}>
-                <img
-                  style={{ width: 300, height: "auto" }}
-                  src={MinistriesLogo}
-                  alt="ministriesLogo"
-                ></img>
-              </Grid>
+            <Grid item>
+              <Typography
+                variant="body1"
+                component="p"
+                style={{ color: "#4D4D4D" }}
+              >
+                © Todos los derechos reservados 2021
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
-      </div>
+        <Grid item xs={4}>
+          <Grid
+            container
+            alignItems="center"
+            spacing={2}
+            justifyContent="flex-end"
+          >
+            <Grid item>
+              <img
+                style={{ width: 120, height: "auto" }}
+                src={HospitalLogo}
+                alt="hospitalLogo"
+              ></img>
+            </Grid>
+            <Grid item>
+              <img
+                style={{ width: 270, height: "auto" }}
+                src={MinistriesLogo}
+                alt="ministriesLogo"
+              ></img>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 };
