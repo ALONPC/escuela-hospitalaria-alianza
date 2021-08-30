@@ -21,11 +21,14 @@ const theme = createTheme({
     button: {
       textTransform: "none",
     },
-    h4: {
-      color: "#434343",
+    allVariants: {
+      color: "#434343", // affects typography component directly
     },
   },
   palette: {
+    text: {
+      primary: "#434343",
+    },
     primary: {
       main: "hsla(221, 91%, 59%, 1)",
       //  contrastText: "#fff"
