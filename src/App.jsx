@@ -13,7 +13,6 @@ import { Welcome } from "./components/Views/Welcome";
 const theme = createTheme({
   root: {
     maxWidth: 1920,
-    minHeight: "100vh",
     overflowX: "hidden",
   },
   typography: {
@@ -26,15 +25,12 @@ const theme = createTheme({
     },
   },
   palette: {
-    text: {
-      primary: "#434343",
-    },
     primary: {
-      main: "hsla(221, 91%, 59%, 1)",
+      light: "#CDEFFD",
+      main: "#3673F6",
       //  contrastText: "#fff"
     },
   },
-  // spacing: [8, 16, 24, 48, 64],
 });
 
 function App() {

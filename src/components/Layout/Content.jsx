@@ -4,6 +4,7 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: theme.breakpoints.xl,
+    minHeight: "100vh",
   },
 }));
 

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%, 0)",
     top: "70%",
     left: "50%",
-    boxSizing: "border-box",
+    boxSizing: "border-box", // just in case
     backgroundColor: "#ffffff",
   },
   w2Text: {
