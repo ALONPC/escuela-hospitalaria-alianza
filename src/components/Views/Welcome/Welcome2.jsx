@@ -4,24 +4,21 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/styles";
 import Kids from "../../../assets/w2kids.svg";
 import { useSpacing } from "../../../hooks/useSpacing";
-
-const layout = {
-  lg: 6,
-  xs: 12,
-};
+import { useLayout } from "../../../hooks/useLayout";
 
 export const Welcome2 = () => {
+  const layout = useLayout(2);
   const spacing = useSpacing();
   const useStyles = makeStyles((theme) => ({
     container: {
       maxWidth: "70%",
       borderRadius: 30,
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.default,
       textAlign: "center",
       marginTop: `${spacing}rem`,
     },
     whatIsIt: {
-      padding: theme.spacing(4),
+      padding: theme.spacing(2),
     },
     kids: {
       width: "100%",
@@ -35,43 +32,40 @@ export const Welcome2 = () => {
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    // lg && (
-    <>
+    <Grid
+      container
+      item
+      className={classes.container}
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid
         container
-        className={classes.container}
-        justifyContent="center"
-        alignItems="center"
+        item
+        direction="column"
+        className={classes.whatIsIt}
+        spacing={2}
+        {...layout}
       >
-        <Grid
-          container
-          item
-          direction="column"
-          className={classes.whatIsIt}
-          {...layout}
-          spacing={4}
-        >
-          <Grid item>
-            <Typography variant="h4">
-              ¿Para qué se necesita una escuela hospitalaria?
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="subtitle1">
-              A fin de que los niños no abandonen o retrasen su escolaridad, las
-              escuelas hospitalarias brindan una educación compensatoria y de
-              calidad que permite su continuidad de estudios mientras que a su
-              vez, se les garantiza la reinserción escolar al término de sus
-              tratamientos médicos.
-            </Typography>
-          </Grid>
+        <Grid item>
+          <Typography variant="h4">
+            ¿Para qué se necesita una escuela hospitalaria?
+          </Typography>
         </Grid>
-        {/* somehow it won't detect the 12 grid layout so i had to use 5 here and space-evenly on justify content above */}
-        <Grid item {...layout} style={{ textAlign: "center" }}>
-          <img className={classes.kids} src={Kids} alt="kids"></img>
+        <Grid item>
+          <Typography variant="subtitle1">
+            A fin de que los niños no abandonen o retrasen su escolaridad, las
+            escuelas hospitalarias brindan una educación compensatoria y de
+            calidad que permite su continuidad de estudios mientras que a su
+            vez, se les garantiza la reinserción escolar al término de sus
+            tratamientos médicos.
+          </Typography>
         </Grid>
       </Grid>
-    </>
-    // )
+      {/* somehow it won't detect the 12 grid layout so i had to use 5 here and space-evenly on justify content above */}
+      <Grid item {...layout} style={{ textAlign: "center" }}>
+        <img className={classes.kids} src={Kids} alt="kids"></img>
+      </Grid>
+    </Grid>
   );
 };

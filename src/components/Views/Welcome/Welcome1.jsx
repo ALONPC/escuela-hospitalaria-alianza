@@ -10,7 +10,7 @@ export const Welcome1 = () => {
     clouds: {
       position: "absolute",
       width: "100%",
-      top: "10%",
+      top: "7%",
       left: 0,
       zIndex: -1,
     },
