@@ -12,7 +12,7 @@ import { Logo } from "../Atoms/Logo";
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    padding: 16,
+    padding: theme.spacing(2),
   },
   nav: {
     display: "flex",

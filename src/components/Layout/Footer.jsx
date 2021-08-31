@@ -8,9 +8,7 @@ import { Logo } from "../Atoms/Logo";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    flexGrow: 1,
     height: 182,
-    top: "100vh",
     backgroundColor: theme.palette.primary.light,
     border: "1px solid red",
   },
