@@ -15,11 +15,16 @@ import OrangeBean from "../../../assets/orangeBean.svg";
 import Pill from "../../../assets/pill.svg";
 
 export const Welcome3 = () => {
-  let layout = useLayout(3);
+  const layout = useLayout(3);
   // const layout = {
   //   lg: 4,
   //   xs: 4,
   // };
+  const beanLayout = {
+    lg: 4,
+    md: 4,
+    xs: 4,
+  };
   const spacing = useSpacing();
   const theme = useTheme();
   const small = useMediaQuery(theme.breakpoints.between("xs", "lg"));
@@ -40,21 +45,29 @@ export const Welcome3 = () => {
       position: "absolute",
       top: 0,
       float: "left",
-      left: small ? "30%" : "1rem",
+      left: small ? "30%" : "4rem",
       zIndex: 1,
     },
     patch: {
       position: "absolute",
-      top: 0,
-      float: "left",
+      top: -10,
+      float: "left", // this 'fixes' the element with the nearest relative element, which is the grid
       left: small ? "50%" : "4rem",
       zIndex: 1,
     },
     pill: {
       position: "absolute",
-      top: 0,
+      top: -20,
       float: "left",
       left: small ? "50%" : "4rem",
+      zIndex: 1,
+    },
+    text: {
+      position: "absolute",
+      top: "30%",
+      left: "30%",
+      // transform: "translate(-50%, 0%)",
+      float: "left",
       zIndex: 1,
     },
   }));
@@ -93,23 +106,68 @@ export const Welcome3 = () => {
         spacing={2}
       >
         <Grid style={{ position: "relative" }} item {...layout}>
-          <div>
+          <>
             <img src={BlueBean} alt="blueBean"></img>
-            <Grid style={{ position: "absolute", top: "50%" }}>
-              <Typography variant="h5">Patologías Crónicas</Typography>
-              <Typography variant="subtitle1">
-                tales como hemodializados u oxígeno dependientes
-              </Typography>
+            <Grid
+              container
+              className={classes.text}
+              spacing={1}
+              {...beanLayout}
+            >
+              <Grid item>
+                <Typography variant="h5">Patologías Crónicas</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1">
+                  Tales como hemodializados u oxígeno dependientes
+                </Typography>
+              </Grid>
             </Grid>
-          </div>
+          </>
           <img className={classes.hospital} src={Hospital} alt="hospital"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
-          <img src={YellowBean} alt="yellowBean"></img>
+          <>
+            <img src={YellowBean} alt="yellowBean"></img>
+            <Grid
+              container
+              className={classes.text}
+              spacing={1}
+              {...beanLayout}
+            >
+              <Grid item>
+                <Typography variant="h5">
+                  Patologías Agudas de curso prolongado
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1">
+                  Como quemaduras, politraumatismos y oncológicos
+                </Typography>
+              </Grid>
+            </Grid>
+          </>
           <img className={classes.patch} src={Patch} alt="patch"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
-          <img src={OrangeBean} alt="orangeBean"></img>
+          <>
+            <img src={OrangeBean} alt="orangeBean"></img>
+            <Grid
+              container
+              className={classes.text}
+              spacing={1}
+              {...beanLayout}
+            >
+              <Grid item>
+                <Typography variant="h5">Otras enfermedades</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1">
+                  Que requieran de hospitalización o de un tratamiento médico
+                </Typography>
+              </Grid>
+            </Grid>
+          </>
           <img className={classes.pill} src={Pill} alt="pill"></img>
         </Grid>
       </Grid>
