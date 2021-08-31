@@ -1,6 +1,6 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/styles";
 
 import { useLayout } from "../../../hooks/useLayout";
 import { useSpacing } from "../../../hooks/useSpacing";
@@ -21,6 +21,8 @@ export const Welcome3 = () => {
   //   xs: 4,
   // };
   const spacing = useSpacing();
+  const theme = useTheme();
+  const small = useMediaQuery(theme.breakpoints.between("xs", "lg"));
   const useStyles = makeStyles((theme) => ({
     container: {
       maxWidth: "70%",
@@ -32,31 +34,27 @@ export const Welcome3 = () => {
     beanWrapper: {
       // border: "1px solid red",
       maxWidth: "80%",
-
       textAlign: "center",
     },
     hospital: {
       position: "absolute",
       top: 0,
-      // float: "left",
-      clear: "left",
-      left: 0,
-      // left: "8rem",
+      float: "left",
+      left: small ? "30%" : "1rem",
       zIndex: 1,
     },
     patch: {
       position: "absolute",
       top: 0,
       float: "left",
-      // left: "20rem",
+      left: small ? "50%" : "4rem",
       zIndex: 1,
     },
     pill: {
       position: "absolute",
       top: 0,
       float: "left",
-
-      // left: "16rem",
+      left: small ? "50%" : "4rem",
       zIndex: 1,
     },
   }));
@@ -96,7 +94,7 @@ export const Welcome3 = () => {
       >
         <Grid style={{ position: "relative" }} item {...layout}>
           <div>
-            <img src={BlueBean}></img>
+            <img src={BlueBean} alt="blueBean"></img>
             <Grid style={{ position: "absolute", top: "50%" }}>
               <Typography variant="h5">Patologías Crónicas</Typography>
               <Typography variant="subtitle1">
@@ -104,15 +102,15 @@ export const Welcome3 = () => {
               </Typography>
             </Grid>
           </div>
-          <img className={classes.hospital} src={Hospital}></img>
+          <img className={classes.hospital} src={Hospital} alt="hospital"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
-          <img src={YellowBean}></img>
-          <img className={classes.patch} src={Patch}></img>
+          <img src={YellowBean} alt="yellowBean"></img>
+          <img className={classes.patch} src={Patch} alt="patch"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
-          <img src={OrangeBean}></img>
-          <img className={classes.pill} src={Pill}></img>
+          <img src={OrangeBean} alt="orangeBean"></img>
+          <img className={classes.pill} src={Pill} alt="pill"></img>
         </Grid>
       </Grid>
     </>
