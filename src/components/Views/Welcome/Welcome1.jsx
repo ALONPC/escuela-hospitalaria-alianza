@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { Button } from "../../Atoms/Button";
-import Clouds from "../../../assets/clouds.svg";
 import { useSpacing } from "../../../hooks/useSpacing";
+import { Clouds } from "../../Atoms/Clouds";
 
 export const Welcome1 = () => {
   const spacing = useSpacing();
@@ -41,7 +41,7 @@ export const Welcome1 = () => {
           <Button variant="outlined">Aprende más sobre nosotros</Button>
         </Grid>
       </Grid>
-      <img className={classes.clouds} src={Clouds} alt="clouds"></img>
+      <Clouds></Clouds>
     </>
   );
 };
