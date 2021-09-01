@@ -13,9 +13,5 @@ export const useSpacing = () => {
   if (isLargeScreen) spacing = 10;
   else if (isMediumScreen) spacing = 6;
   else if (isSmallScreen) spacing = 2;
-  console.log(
-    "🚀 ~ file: useSpacing.jsx ~ line 18 ~ responsiveSpacing ~ spacing",
-    spacing
-  );
   return spacing;
 };

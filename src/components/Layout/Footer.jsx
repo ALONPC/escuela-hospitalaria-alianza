@@ -10,18 +10,18 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: 182,
     backgroundColor: theme.palette.primary.light,
-    border: "1px solid red",
   },
-  // circle: {
-  //   backgroundColor: "#CDEFFD",
-  //   borderRadius: "50%",
-  //   width: 250,
-  //   height: 250,
-  //   border: "1px solid red",
-  //   position: "absolute",
-  //   left: "50%",
-  //   transform: "translate(-50%, 0%)",
-  // },
+  circle: {
+    position: "absolute",
+    left: "50%",
+    transform: "translate(-50%, -30%)",
+    borderRadius: "50%",
+    backgroundColor: theme.palette.primary.light,
+    width: 250,
+    height: 250,
+    zIndex: -1,
+    // border: "1px solid red",
+  },
 }));
 
 const socialMedia = [
@@ -74,6 +74,7 @@ export const Footer = () => {
             spacing={4}
           >
             <Grid item>
+              <div className={classes.circle}></div>
               <Logo></Logo>
             </Grid>
             <Grid item>

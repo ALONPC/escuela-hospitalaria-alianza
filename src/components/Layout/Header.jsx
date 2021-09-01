@@ -62,9 +62,11 @@ export const Header = () => {
       alignItems="center"
       className={classes.header}
     >
-      <Grid container item xs={4} justifyContent="space-evenly">
+      <Grid container item spacing={4} xs={4} justifyContent="flex-end">
         {options.map((option) => (
-          <Button {...option}>{option.name}</Button>
+          <Grid item>
+            <Button {...option}>{option.name}</Button>
+          </Grid>
         ))}
       </Grid>
       {!isMobile && (

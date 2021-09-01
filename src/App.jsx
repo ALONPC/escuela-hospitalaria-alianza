@@ -32,6 +32,12 @@ let theme = createTheme({
       main: "#3673F6",
       //  contrastText: "#fff"
     },
+    secondary: {
+      main: "#EF9B48",
+    },
+    tertiary: {
+      main: "#FAE589",
+    },
   },
   // spacing: [8, 16, 32, 64, 128, 256] // makes double scroll lol
 });

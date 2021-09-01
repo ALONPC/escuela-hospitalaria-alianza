@@ -2,9 +2,10 @@ import React from "react";
 import { Grid, Typography, useTheme } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/styles";
-import Kids from "../../../assets/w2kids.svg";
+import Kids from "../../../assets/kids1.svg";
 import { useSpacing } from "../../../hooks/useSpacing";
 import { useLayout } from "../../../hooks/useLayout";
+import { Container } from "../../Atoms/Container";
 
 export const Welcome2 = () => {
   const layout = useLayout(2);
@@ -25,6 +26,9 @@ export const Welcome2 = () => {
       maxWidth: 400,
       height: "auto",
     },
+    kidsContainer: {
+      textAlign: "center",
+    },
   }));
   const classes = useStyles();
   const theme = useTheme();
@@ -32,13 +36,7 @@ export const Welcome2 = () => {
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <Grid
-      container
-      item
-      className={classes.container}
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Container>
       <Grid
         container
         item
@@ -63,9 +61,9 @@ export const Welcome2 = () => {
         </Grid>
       </Grid>
       {/* somehow it won't detect the 12 grid layout so i had to use 5 here and space-evenly on justify content above */}
-      <Grid item {...layout} style={{ textAlign: "center" }}>
+      <Grid item {...layout} className={classes.kidsContainer}>
         <img className={classes.kids} src={Kids} alt="kids"></img>
       </Grid>
-    </Grid>
+    </Container>
   );
 };

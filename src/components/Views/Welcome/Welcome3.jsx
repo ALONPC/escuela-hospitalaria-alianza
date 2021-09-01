@@ -13,6 +13,7 @@ import Patch from "../../../assets/patch.svg";
 
 import OrangeBean from "../../../assets/orangeBean.svg";
 import Pill from "../../../assets/pill.svg";
+import { Container } from "../../Atoms/Container";
 
 export const Welcome3 = () => {
   const layout = useLayout(3);
@@ -27,41 +28,43 @@ export const Welcome3 = () => {
   };
   const spacing = useSpacing();
   const theme = useTheme();
-  const small = useMediaQuery(theme.breakpoints.between("xs", "lg"));
+  // const small = useMediaQuery(theme.breakpoints.between("xs", "lg"));
+  // console.log("🚀 ~ file: Welcome3.jsx ~ line 31 ~ Welcome3 ~ small", small);
   const useStyles = makeStyles((theme) => ({
-    container: {
-      maxWidth: "70%",
-      borderRadius: 30,
-      backgroundColor: theme.palette.background.default, // #fafafa
-      textAlign: "center",
-      marginTop: `${spacing / 2}rem`,
-    },
     beanWrapper: {
       // border: "1px solid red",
-      maxWidth: "80%",
+      maxWidth: "90%",
       textAlign: "center",
     },
-    hospital: {
-      position: "absolute",
-      top: 0,
-      float: "left",
-      left: small ? "30%" : "4rem",
-      zIndex: 1,
-    },
-    patch: {
+    icon: {
       position: "absolute",
       top: -10,
-      float: "left", // this 'fixes' the element with the nearest relative element, which is the grid
-      left: small ? "50%" : "4rem",
-      zIndex: 1,
-    },
-    pill: {
-      position: "absolute",
-      top: -20,
       float: "left",
-      left: small ? "50%" : "4rem",
+      // left: small ? "50%" : "4rem",
+      left: "50%",
       zIndex: 1,
     },
+    // hospital: {
+    //   position: "absolute",
+    //   top: -10,
+    //   float: "left",
+    //   left: small ? "50%" : "4rem",
+    //   zIndex: 1,
+    // },
+    // patch: {
+    //   position: "absolute",
+    //   top: -10,
+    //   float: "left", // this 'fixes' the element with the nearest relative element, which is the grid
+    //   left: small ? "50%" : "4rem",
+    //   zIndex: 1,
+    // },
+    // pill: {
+    //   position: "absolute",
+    //   top: -10,
+    //   float: "left",
+    //   left: small ? "50%" : "4rem",
+    //   zIndex: 1,
+    // },
     text: {
       position: "absolute",
       top: "30%",
@@ -74,15 +77,17 @@ export const Welcome3 = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid
-        container
-        item
-        className={classes.container}
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
+      <Container
+        additionalStyles={{
+          marginTop: "8rem",
+        }}
+        gridProps={{
+          spacing: 2,
+          direction: "column",
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+        }}
       >
         <Grid item {...layout}>
           <Typography variant="h4">
@@ -96,7 +101,7 @@ export const Welcome3 = () => {
             pre-básica, básica, media y educación especial que puedan padecer:
           </Typography>
         </Grid>
-      </Grid>
+      </Container>
       <Grid
         className={classes.beanWrapper}
         container
@@ -105,6 +110,7 @@ export const Welcome3 = () => {
         alignItems="center"
         spacing={2}
       >
+        {/* could make this a for loop for each bean */}
         <Grid style={{ position: "relative" }} item {...layout}>
           <>
             <img src={BlueBean} alt="blueBean"></img>
@@ -124,7 +130,7 @@ export const Welcome3 = () => {
               </Grid>
             </Grid>
           </>
-          <img className={classes.hospital} src={Hospital} alt="hospital"></img>
+          <img className={classes.icon} src={Hospital} alt="hospital"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
           <>
@@ -147,7 +153,7 @@ export const Welcome3 = () => {
               </Grid>
             </Grid>
           </>
-          <img className={classes.patch} src={Patch} alt="patch"></img>
+          <img className={classes.icon} src={Patch} alt="patch"></img>
         </Grid>
         <Grid style={{ position: "relative" }} item {...layout}>
           <>
@@ -168,7 +174,7 @@ export const Welcome3 = () => {
               </Grid>
             </Grid>
           </>
-          <img className={classes.pill} src={Pill} alt="pill"></img>
+          <img className={classes.icon} src={Pill} alt="pill"></img>
         </Grid>
       </Grid>
     </>
