@@ -6,6 +6,8 @@ import { Welcome1 } from "./Welcome1";
 import { Welcome2 } from "./Welcome2";
 import { Welcome3 } from "./Welcome3";
 import { Welcome4 } from "./Welcome4";
+import { Clouds } from "../../Atoms/Clouds";
+import { Welcome5 } from "./Welcome5";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -27,12 +29,14 @@ export const Welcome = () => {
         <Welcome1></Welcome1>
       </Grid>
       {/* section separated from the cloud section (welcome1) */}
-      <Grid item>
-        <Grid {...layout}>
-          <Welcome2></Welcome2>
-          <Welcome3></Welcome3>
-          <Welcome4></Welcome4>
-        </Grid>
+      <Grid item {...layout}>
+        <Welcome2></Welcome2>
+        <Welcome3></Welcome3>
+        <Welcome4></Welcome4>
+      </Grid>
+      <Grid item {...layout}>
+        <Welcome5></Welcome5>
+        {/* <Clouds place="bottom"></Clouds> */}
       </Grid>
     </Grid>
   );

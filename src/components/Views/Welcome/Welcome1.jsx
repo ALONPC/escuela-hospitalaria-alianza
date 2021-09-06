@@ -19,6 +19,9 @@ export const Welcome1 = () => {
       zIndex: 1,
       marginTop: `${spacing}rem`,
     },
+    button: {
+      fontSize: "1.4rem",
+    },
   }));
   const classes = useStyles();
   return (
@@ -38,7 +41,11 @@ export const Welcome1 = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="outlined">Aprende más sobre nosotros</Button>
+          <Button variant="outlined">
+            <Typography className={classes.button}>
+              Aprende más sobre nosotros
+            </Typography>
+          </Button>
         </Grid>
       </Grid>
       <Clouds></Clouds>

@@ -34,7 +34,6 @@ export const Button = ({ children, type, ...restOfProps }) => {
         : {
             className: classes.button,
           })}
-      // className={restOfProps.size === "large" && classes.large}
     >
       {children}
     </MuiButton>

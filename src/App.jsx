@@ -30,7 +30,7 @@ let theme = createTheme({
     primary: {
       light: "#CDEFFD",
       main: "#3673F6",
-      //  contrastText: "#fff"
+      contrastText: "#fff",
     },
     secondary: {
       main: "#EF9B48",
