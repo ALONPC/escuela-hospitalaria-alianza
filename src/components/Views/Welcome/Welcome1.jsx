@@ -2,7 +2,6 @@ import React from "react";
 import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { Button } from "../../Atoms/Button";
 import { useSpacing } from "../../../hooks/useSpacing";
-import { Clouds } from "../../Atoms/Clouds";
 
 export const Welcome1 = () => {
   const spacing = useSpacing();
@@ -48,7 +47,6 @@ export const Welcome1 = () => {
           </Button>
         </Grid>
       </Grid>
-      <Clouds></Clouds>
     </>
   );
 };

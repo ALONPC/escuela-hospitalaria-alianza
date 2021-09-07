@@ -39,7 +39,7 @@ export const Welcome5 = () => {
       // height: "100%",
       marginTop: -20, // renders above the blue bean
       width: "100%",
-      height: "80%",
+      height: "70%",
       zIndex: 1,
     },
     orangeBean: {
@@ -52,7 +52,7 @@ export const Welcome5 = () => {
       // float: "right",
       // left: "50%",
       width: "100%",
-      maxWidth: 400,
+      maxWidth: 500,
       height: "auto",
       zIndex: 2,
     },

@@ -12,9 +12,10 @@ export const Clouds = ({ place }) => {
       left: 0,
       zIndex: -1,
       ...(place.includes("bottom") && {
-        bottom: "-18%",
+        bottom: "-24%",
+        // bottom: -700, // almost the same
       }),
-      ...(place.includes("top") && { top: "4%" }),
+      ...(place.includes("top") && { top: "2%" }),
       overflow: "hidden",
     },
   }));
@@ -23,7 +24,7 @@ export const Clouds = ({ place }) => {
 };
 
 Clouds.propTypes = {
-  place: PropTypes.string,
+  place: PropTypes.oneOf(["top", "bottom"]),
 };
 
 Clouds.defaultProps = {

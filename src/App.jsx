@@ -54,8 +54,12 @@ function App() {
       <div style={theme.root}>
         <ThemeProvider theme={theme}>
           <Router>
+            {/* setting this div as relative, the clouds (absolute elements) will render accordingly */}
+            {/* has hidden bc the bottom clouds has a part hidden from the document */}
+            {/* https://stackoverflow.com/questions/36531708/why-can-absolutely-positioned-elements-make-areas-scrollable */}
             <div style={{ position: "relative", overflow: "hidden" }}>
               <Header></Header>
+              <Clouds></Clouds>
               <Content>
                 <Switch>
                   <Route path="/" component={Welcome}></Route>

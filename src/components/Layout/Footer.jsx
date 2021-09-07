@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   circle: {
     position: "absolute",
     left: "50%",
-    transform: "translate(-50%, -30%)",
+    transform: "translate(-50%, -24%)",
     borderRadius: "50%",
     backgroundColor: theme.palette.primary.light,
     width: 250,
