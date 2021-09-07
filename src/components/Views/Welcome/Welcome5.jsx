@@ -1,4 +1,10 @@
-import { Grid, makeStyles, TextField, Typography } from "@material-ui/core";
+import {
+  Grid,
+  makeStyles,
+  TextField,
+  Typography,
+  useTheme,
+} from "@material-ui/core";
 import React from "react";
 import { useLayout } from "../../../hooks/useLayout";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
@@ -8,18 +14,18 @@ import { Container } from "../../Atoms/Container";
 import YellowBean from "../../../assets/yellowBean2.svg";
 import OrangeBean from "../../../assets/orangeBean2.svg";
 import BlueBean from "../../../assets/blueBean2.svg";
+import { Button } from "../../Atoms/Button";
 
 export const Welcome5 = () => {
+  const theme = useTheme();
   const layout = useLayout(2);
   const [small] = useMediaQuery();
   const useStyles = makeStyles((theme) => ({
-    container: {
-      marginTop: "6rem",
-    },
     form: {
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      justifyContent: "space-evenly",
+      alignItems: "center",
     },
     blueBean: {
       width: "100%",
@@ -56,56 +62,106 @@ export const Welcome5 = () => {
       left: small ? "20%" : "10%",
       color: theme.palette.primary.contrastText,
     },
+    textField: {
+      //   margin: theme.spacing(2),
+      width: "100%",
+    },
   }));
   const classes = useStyles();
-  return (
-    <Container
-      additionalStyles={{
-        backgroundColor: "transparent",
-        border: "1px solid red",
+
+  const KidsSide = () => (
+    <Grid
+      container
+      item
+      xs={12}
+      lg={7}
+      style={{
+        position: "relative",
       }}
-      className={classes.container}
     >
-      <Grid container item xs={12} lg={5}>
-        <form className={classes.form} noValidate autoComplete="off">
-          <TextField fullWidth label="Nombre" variant="outlined" />
-          <TextField fullWidth label="Email" variant="outlined" />
-          <TextField fullWidth label="Mensaje" variant="outlined" />
-        </form>
+      <Grid container item xs={12}>
+        <img src={BlueBean} alt="blueBean" className={classes.blueBean}></img>
+        <Typography className={classes.contactUs} variant="h4">
+          Contáctanos
+        </Typography>
       </Grid>
+      <Grid container item>
+        <Grid container item xs={6}>
+          <img
+            src={YellowBean}
+            alt="yellowBean"
+            className={classes.yellowBean}
+          ></img>
+          <img src={Kids} alt="kids" className={classes.kids}></img>
+        </Grid>
+        <Grid item xs={6}>
+          <img
+            src={OrangeBean}
+            alt="orangeBean"
+            className={classes.orangeBean}
+          ></img>
+        </Grid>
+      </Grid>
+    </Grid>
+  );
+
+  const FormSide = () => (
+    <Grid container item xs={12} lg={5} style={{ padding: theme.spacing(2) }}>
+      {/* <form noValidate autoComplete="off"> */}
       <Grid
         container
-        item
-        xs={12}
-        lg={7}
-        style={{
-          position: "relative",
-        }}
+        //   direction="column"
+        justifyContent="space-between"
+        alignItems="center"
+        alignContent="center"
+        spacing={4}
       >
-        <Grid container item xs={12}>
-          <img src={BlueBean} alt="blueBean" className={classes.blueBean}></img>
-          <Typography className={classes.contactUs} variant="h4">
-            Contáctanos
-          </Typography>
+        <Grid item xs={12}>
+          <TextField
+            className={classes.textField}
+            required
+            //   fullWidth
+            label="Nombre"
+            variant="outlined"
+          />
         </Grid>
-        <Grid container item>
-          <Grid container item xs={6}>
-            <img
-              src={YellowBean}
-              alt="yellowBean"
-              className={classes.yellowBean}
-            ></img>
-            <img src={Kids} alt="kids" className={classes.kids}></img>
-          </Grid>
-          <Grid item xs={6}>
-            <img
-              src={OrangeBean}
-              alt="orangeBean"
-              className={classes.orangeBean}
-            ></img>
-          </Grid>
+        <Grid item xs={12}>
+          <TextField
+            className={classes.textField}
+            required
+            fullWidth
+            label="Email"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            className={classes.textField}
+            required
+            fullWidth
+            multiline
+            rows={4}
+            maxRows={4}
+            label="Mensaje"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button size="large">Enviar</Button>
         </Grid>
       </Grid>
+    </Grid>
+  );
+
+  return (
+    <Container
+      noBackground
+      additionalStyles={{
+        border: "1px solid red",
+      }}
+    >
+      <KidsSide></KidsSide>
+      <FormSide></FormSide>
     </Container>
   );
 };
