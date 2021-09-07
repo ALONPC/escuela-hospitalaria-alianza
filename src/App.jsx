@@ -9,6 +9,7 @@ import { Footer } from "./components/Layout/Footer";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Welcome } from "./components/Views/Welcome/Welcome";
+import { Clouds } from "./components/Atoms/Clouds";
 
 let theme = createTheme({
   root: {
@@ -26,10 +27,12 @@ let theme = createTheme({
       color: "#434343", // affects typography component directly
     },
   },
+
   palette: {
     primary: {
       light: "#CDEFFD",
       main: "#3673F6",
+      hover: "hsla(221, 91%, 70%, 1)",
       contrastText: "#fff",
     },
     secondary: {
@@ -51,15 +54,18 @@ function App() {
       <div style={theme.root}>
         <ThemeProvider theme={theme}>
           <Router>
-            <Header></Header>
-            <Content>
-              <Switch>
-                <Route path="/" component={Welcome}></Route>
-                <Route path="/about"></Route>
-                <Route path="/documents"></Route>
-              </Switch>
-            </Content>
-            <Footer></Footer>
+            <div style={{ position: "relative", overflow: "hidden" }}>
+              <Header></Header>
+              <Content>
+                <Switch>
+                  <Route path="/" component={Welcome}></Route>
+                  <Route path="/about"></Route>
+                  <Route path="/documents"></Route>
+                </Switch>
+              </Content>
+              <Clouds place="bottom"></Clouds>
+              <Footer></Footer>
+            </div>
           </Router>
         </ThemeProvider>
       </div>

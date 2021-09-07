@@ -36,7 +36,6 @@ export const Welcome = () => {
       </Grid>
       <Grid item {...layout}>
         <Welcome5></Welcome5>
-        {/* <Clouds place="bottom"></Clouds> */}
       </Grid>
     </Grid>
   );

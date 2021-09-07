@@ -15,6 +15,7 @@ import YellowBean from "../../../assets/yellowBean2.svg";
 import OrangeBean from "../../../assets/orangeBean2.svg";
 import BlueBean from "../../../assets/blueBean2.svg";
 import { Button } from "../../Atoms/Button";
+import { Input } from "../../Atoms/Input";
 
 export const Welcome5 = () => {
   const theme = useTheme();
@@ -62,19 +63,18 @@ export const Welcome5 = () => {
       left: small ? "20%" : "10%",
       color: theme.palette.primary.contrastText,
     },
-    textField: {
-      //   margin: theme.spacing(2),
-      width: "100%",
-    },
+    // textField: {
+    //   //   margin: theme.spacing(2),
+    //   width: "100%",
+    // },
   }));
   const classes = useStyles();
-
+  const textFieldRows = 10;
   const KidsSide = () => (
     <Grid
       container
       item
-      xs={12}
-      lg={7}
+      {...layout}
       style={{
         position: "relative",
       }}
@@ -106,50 +106,40 @@ export const Welcome5 = () => {
   );
 
   const FormSide = () => (
-    <Grid container item xs={12} lg={5} style={{ padding: theme.spacing(2) }}>
-      {/* <form noValidate autoComplete="off"> */}
-      <Grid
-        container
-        //   direction="column"
-        justifyContent="space-between"
-        alignItems="center"
-        alignContent="center"
-        spacing={4}
-      >
-        <Grid item xs={12}>
-          <TextField
-            className={classes.textField}
-            required
-            //   fullWidth
-            label="Nombre"
-            variant="outlined"
-          />
+    <Grid container item {...layout} style={{ padding: theme.spacing(2) }}>
+      <form noValidate autoComplete="off">
+        <Grid
+          container
+          //   direction="column"
+          justifyContent="space-between"
+          alignItems="center"
+          alignContent="center"
+          spacing={4}
+        >
+          <Grid item xs={12}>
+            <Input required fullWidth label="Nombre" variant="outlined" />
+          </Grid>
+          <Grid item xs={12}>
+            <Input required fullWidth label="Email" variant="outlined" />
+          </Grid>
+          <Grid item xs={12}>
+            <Input
+              required
+              fullWidth
+              multiline
+              rows={textFieldRows}
+              maxRows={textFieldRows}
+              label="Mensaje"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button style={{ width: 180 }} size="large">
+              Enviar
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            className={classes.textField}
-            required
-            fullWidth
-            label="Email"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            className={classes.textField}
-            required
-            fullWidth
-            multiline
-            rows={4}
-            maxRows={4}
-            label="Mensaje"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button size="large">Enviar</Button>
-        </Grid>
-      </Grid>
+      </form>
     </Grid>
   );
 
@@ -157,11 +147,12 @@ export const Welcome5 = () => {
     <Container
       noBackground
       additionalStyles={{
-        border: "1px solid red",
+        marginTop: "4rem",
+        // border: "1px solid red",
       }}
     >
-      <KidsSide></KidsSide>
       <FormSide></FormSide>
+      <KidsSide></KidsSide>
     </Container>
   );
 };
